@@ -17,7 +17,6 @@ export default function Login(){
 
     const [password, setPassword] = useState("")
 
-    const presentYear = thisYear()
 
 
     const router = useRouter()
@@ -53,23 +52,17 @@ export default function Login(){
         <SafeAreaView style={styles.background}>
             <View>
                 <View style={styles.logoContainer}><Logo onPress={logoHandler} style={styles.logo}/><Text style={styles.logoText}>Welcome Back</Text></View>
-                <View style={styles.inputContainer}>
-                    <Text>email or username</Text>
-                    <TextInput style={styles.input} keyboardType="email-address" placeholder="enter email address"/>
-                </View>
-                <View style={styles.inputContainer}>
-                    <Text>Password</Text>
-                    <TextInput placeholder="enter password" onChangeText={handleChange} style={styles.input} value={password} autoCorrect={false} autoCapitalize="none" />
-                </View>
+                    <TextInput style={styles.input} keyboardType="email-address" placeholder="Email address"/>
+                    <TextInput placeholder="Password" onChangeText={handleChange} style={styles.input} value={password} autoCorrect={false} autoCapitalize="none" />
             
                 <CustomButton buttonText={styles.signUpText} buttonContainer={styles.signUpContainer} onPress={loginHandler}>Login</CustomButton>
 
                 <CustomButton buttonContainer={styles.forgotPassword} buttonText={styles.forgotPasswordText} onPress={forgotPassword}>Forgot Password?</CustomButton>
-                <CustomIcon iconContainer={styles.signUpContainer}><GoogleIcon height={20} width={20}/><Text> Continue with Apple</Text></CustomIcon>
-                <CustomIcon iconContainer={styles.signUpContainer}><AppleIcon height={20} width={20}/><Text>Continue With Google</Text></CustomIcon>
+                <CustomIcon iconContainer={styles.signUpContainer}><GoogleIcon height={20} width={20}/><Text> Continue with Google</Text></CustomIcon>
+                <CustomIcon iconContainer={styles.signUpContainer}><AppleIcon height={20} width={20}/><Text>Continue With Apple</Text></CustomIcon>
                 <View style={styles.signUpContainer2}><Text>Don't have an account?</Text><CustomButton buttonContainer={styles.signupButton} buttonText={styles.signupText} onPress={signupHandler}>Sign Up </CustomButton></View>
 
-                <Text style={styles.footer}>ServiceHub &copy; {presentYear}</Text>
+                <Text style={styles.footer}>ServiceHub &copy; {thisYear()}</Text>
             </View>
 
            
@@ -97,16 +90,12 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontStyle: "italic"
     },
-    inputContainer: {
-        flexDirection: "column",
-        gap: 10
-    },
-    input: {
-    
-        borderWidth: 0.2,
+
+    input: {    
+        borderWidth: 0.5,
         padding: 10,
         borderRadius: 8,
-        marginBottom: 10
+        marginBottom: 15
     },
     forgotPassword : {
         backgroundColor: "transparent",

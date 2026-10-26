@@ -86,7 +86,6 @@ const styles = StyleSheet.create({
    
     loginText: {
         color: Colors.primary,
-        textDecorationLine: "underline",
     }
  
 })
